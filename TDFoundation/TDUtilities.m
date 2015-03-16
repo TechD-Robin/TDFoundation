@@ -103,7 +103,7 @@ NSString * TDGetImageNameForScreenScale( NSString * imageName, NSInteger scaleSc
         file                            = [imageName substringToIndex: ( [imageName length] - 4 )];
     }
     
-    file                            = [NSString stringWithFormat: @"%s@%dx", [file UTF8String], scaleScreen];
+    file                            = [NSString stringWithFormat: @"%s@%dx", [file UTF8String], (int)scaleScreen];
     imageName                       = [file stringByAppendingPathExtension: @"png"];
     return imageName;
 }

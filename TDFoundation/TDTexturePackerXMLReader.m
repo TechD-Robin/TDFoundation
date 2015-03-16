@@ -586,10 +586,8 @@ static  NSString  * const kTDXMLReaderKeyFramesOffsetY              = @"oY";
         return nil;
     }
     
-    NSInteger                       count;
     NSArray                       * allKeys;
     
-    count                           = 0;
     allKeys                         = nil;
     allKeys                         = [framesContanier  allKeys];
     if ( ( nil == allKeys ) || ( [allKeys count] == 0 ) )
