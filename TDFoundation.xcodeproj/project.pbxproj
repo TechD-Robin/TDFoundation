@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A8FDD001AB72406006BD130 /* TDFoundation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2A8FDCFF1AB72406006BD130 /* TDFoundation.h */; };
-		2A8FDD021AB72406006BD130 /* TDFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD011AB72406006BD130 /* TDFoundation.m */; };
 		2A8FDD081AB72406006BD130 /* libTDFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */; };
+		2A8FDD1A1AB724BE006BD130 /* TDTexturePackerXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */; };
+		2A8FDD1B1AB724BE006BD130 /* TDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD191AB724BE006BD130 /* TDUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +39,13 @@
 /* Begin PBXFileReference section */
 		2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTDFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8FDCFF1AB72406006BD130 /* TDFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFoundation.h; sourceTree = "<group>"; };
-		2A8FDD011AB72406006BD130 /* TDFoundation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDFoundation.m; sourceTree = "<group>"; };
 		2A8FDD071AB72406006BD130 /* TDFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8FDD0D1AB72406006BD130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A8FDD161AB724BE006BD130 /* TDTexturePackerXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTexturePackerXMLReader.h; sourceTree = "<group>"; };
+		2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTexturePackerXMLReader.m; sourceTree = "<group>"; };
+		2A8FDD181AB724BE006BD130 /* TDUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtilities.h; sourceTree = "<group>"; };
+		2A8FDD191AB724BE006BD130 /* TDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtilities.m; sourceTree = "<group>"; };
+		2A8FDD1C1AB7253F006BD130 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +88,12 @@
 		2A8FDCFE1AB72406006BD130 /* TDFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				2A8FDD1C1AB7253F006BD130 /* ARCMacros.h */,
 				2A8FDCFF1AB72406006BD130 /* TDFoundation.h */,
-				2A8FDD011AB72406006BD130 /* TDFoundation.m */,
+				2A8FDD181AB724BE006BD130 /* TDUtilities.h */,
+				2A8FDD191AB724BE006BD130 /* TDUtilities.m */,
+				2A8FDD161AB724BE006BD130 /* TDTexturePackerXMLReader.h */,
+				2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */,
 			);
 			path = TDFoundation;
 			sourceTree = "<group>";
@@ -193,7 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A8FDD021AB72406006BD130 /* TDFoundation.m in Sources */,
+				2A8FDD1B1AB724BE006BD130 /* TDUtilities.m in Sources */,
+				2A8FDD1A1AB724BE006BD130 /* TDTexturePackerXMLReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +258,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -282,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
