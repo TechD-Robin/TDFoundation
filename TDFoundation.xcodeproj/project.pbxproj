@@ -11,6 +11,8 @@
 		2A8FDD081AB72406006BD130 /* libTDFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */; };
 		2A8FDD1A1AB724BE006BD130 /* TDTexturePackerXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */; };
 		2A8FDD1B1AB724BE006BD130 /* TDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD191AB724BE006BD130 /* TDUtilities.m */; };
+		2AC1CD061AD691F800419536 /* NSJSONSerialization+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD011AD691F800419536 /* NSJSONSerialization+TechD.m */; };
+		2AC1CD071AD691F800419536 /* NSString+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD031AD691F800419536 /* NSString+TechD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,13 @@
 		2A8FDD181AB724BE006BD130 /* TDUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtilities.h; sourceTree = "<group>"; };
 		2A8FDD191AB724BE006BD130 /* TDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtilities.m; sourceTree = "<group>"; };
 		2A8FDD1C1AB7253F006BD130 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		2AC1CCFF1AD691F800419536 /* Foundation+TechD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+TechD.h"; sourceTree = "<group>"; };
+		2AC1CD001AD691F800419536 /* NSJSONSerialization+TechD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+TechD.h"; sourceTree = "<group>"; };
+		2AC1CD011AD691F800419536 /* NSJSONSerialization+TechD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+TechD.m"; sourceTree = "<group>"; };
+		2AC1CD021AD691F800419536 /* NSString+TechD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TechD.h"; sourceTree = "<group>"; };
+		2AC1CD031AD691F800419536 /* NSString+TechD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TechD.m"; sourceTree = "<group>"; };
+		2AC1CD041AD691F800419536 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2AC1CD051AD691F800419536 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +76,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1119C41AD690FF00F42774 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				2AC1CCFD1AD691F800419536 /* Foundation+TechD */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		2A8FDCF31AB72405006BD130 = {
 			isa = PBXGroup;
 			children = (
 				2A8FDCFE1AB72406006BD130 /* TDFoundation */,
 				2A8FDD0B1AB72406006BD130 /* TDFoundationTests */,
+				2A1119C41AD690FF00F42774 /* Libraries */,
 				2A8FDCFD1AB72406006BD130 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +130,29 @@
 				2A8FDD0D1AB72406006BD130 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2AC1CCFD1AD691F800419536 /* Foundation+TechD */ = {
+			isa = PBXGroup;
+			children = (
+				2AC1CD041AD691F800419536 /* LICENSE */,
+				2AC1CD051AD691F800419536 /* README.md */,
+				2AC1CCFE1AD691F800419536 /* Foundation+TechD */,
+			);
+			name = "Foundation+TechD";
+			path = "Libraries/Foundation+TechD";
+			sourceTree = "<group>";
+		};
+		2AC1CCFE1AD691F800419536 /* Foundation+TechD */ = {
+			isa = PBXGroup;
+			children = (
+				2AC1CCFF1AD691F800419536 /* Foundation+TechD.h */,
+				2AC1CD021AD691F800419536 /* NSString+TechD.h */,
+				2AC1CD031AD691F800419536 /* NSString+TechD.m */,
+				2AC1CD001AD691F800419536 /* NSJSONSerialization+TechD.h */,
+				2AC1CD011AD691F800419536 /* NSJSONSerialization+TechD.m */,
+			);
+			path = "Foundation+TechD";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC1CD061AD691F800419536 /* NSJSONSerialization+TechD.m in Sources */,
 				2A8FDD1B1AB724BE006BD130 /* TDUtilities.m in Sources */,
+				2AC1CD071AD691F800419536 /* NSString+TechD.m in Sources */,
 				2A8FDD1A1AB724BE006BD130 /* TDTexturePackerXMLReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +409,7 @@
 				2A8FDD121AB72406006BD130 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A8FDD131AB72406006BD130 /* Build configuration list for PBXNativeTarget "TDFoundationTests" */ = {
 			isa = XCConfigurationList;
@@ -374,6 +418,7 @@
 				2A8FDD151AB72406006BD130 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
