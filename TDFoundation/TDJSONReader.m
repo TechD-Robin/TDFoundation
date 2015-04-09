@@ -33,8 +33,8 @@
 //  ------------------------------------------------------------------------------------------------
 @interface TDJSONReader ()
 {
-    NSDictionary                  * dictionaryContainer;
-    NSArray                       * arrayContainer;
+    BOOL                            topObjectIsArray;
+    id                              dataContainer;    
 }
 
 //  ------------------------------------------------------------------------------------------------
@@ -86,11 +86,10 @@
 //  --------------------------------
 - ( void ) _InitAttributes
 {
-    dictionaryContainer             = nil;
-    arrayContainer                  = nil;
-
+    topObjectIsArray                = NO;
+    dataContainer                   = nil;
+    
 }
-
 
 
 //  ------------------------------------------------------------------------------------------------
@@ -130,6 +129,8 @@
 - ( instancetype ) initWithFile:(NSString *)filename forDirectories:(TDGetPathDirectory)directory inDirectory:(NSString *)subpath
                        encoding:(NSStringEncoding)encode
 {
+    NSParameterAssert( nil != filename );
+    
     self                            = [super init];
     if ( nil == self )
     {
@@ -153,11 +154,13 @@
     
     if ( [container isKindOfClass: [NSDictionary class]] == YES )
     {
-        dictionaryContainer         = container;
+        dataContainer               = container;
+        topObjectIsArray            = NO;
     }
     else if ( [container isKindOfClass: [NSArray class]] == YES )
     {
-        arrayContainer              = container;
+        dataContainer               = container;
+        topObjectIsArray            = YES;
     }
     else
     {
@@ -171,6 +174,265 @@
                    encoding:(NSStringEncoding)encode
 {
     return [[[self class] alloc] initWithFile: filename forDirectories: directory inDirectory: subpath encoding: encode];
+}
+
+//  ------------------------------------------------------------------------------------------------
+#pragma mark method for get data.
+//  ------------------------------------------------------------------------------------------------
+- ( NSInteger ) rootDataCount
+{
+    NSParameterAssert( nil != dataContainer );
+    
+    if ( YES == topObjectIsArray )
+    {
+        return [(NSArray *)dataContainer count];
+    }
+    return [(NSDictionary *)dataContainer count];
+}
+
+//  ------------------------------------------------------------------------------------------------
+//  --------------------------------
+- ( id ) rootObjectAtIndex:(NSInteger)index
+{
+    NSParameterAssert( nil != dataContainer );
+    
+    if ( YES == topObjectIsArray )
+    {
+        if ( [(NSArray *)dataContainer count] < index )
+        {
+            return nil;
+        }
+        return [(NSArray *)dataContainer objectAtIndex: index];
+    }
+    
+    id                              idObject;
+    NSArray                       * allKeys;
+    NSDictionary                  * container;
+    
+    container                       = dataContainer;
+    if ( [container count] < index )
+    {
+        return nil;
+    }
+    
+    allKeys                         = [container allKeys];
+    if ( [allKeys count] < index )
+    {
+        return nil;
+    }
+    
+    for ( int i = 0; i < [allKeys count]; ++i )
+    {
+        if ( [allKeys objectAtIndex: i] == nil )
+        {
+            continue;
+        }
+
+        idObject                    = [container objectForKey: [allKeys objectAtIndex: i]];
+        if ( nil == idObject )
+        {
+            continue;
+        }
+        if ( index == i )
+        {
+            return idObject;
+        }
+    }
+    return nil;
+}
+
+//  ------------------------------------------------------------------------------------------------
+//  ------------------------------------------------------------------------------------------------
+- ( NSString * ) dataAtIndex:(NSInteger)index stringValueForKey:(NSString *)aKey
+{
+    NSParameterAssert( nil != dataContainer );
+    if ( [self rootDataCount] < index )
+    {
+        return nil;
+    }
+    
+    id                              dataObject;
+    NSString                      * string;
+    
+    dataObject                      = [self rootObjectAtIndex: index];
+    if ( ( nil == dataObject ) || ( [dataObject isKindOfClass: [NSDictionary class]] == NO ) )
+    {
+        return nil;
+    }
+    
+    string                          = [dataObject objectForKey: aKey];
+    if ( ( nil == string ) || ( [string length] == 0 ) )
+    {
+        return nil;
+    }
+    return string;
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( NSInteger ) dataAtIndex:(NSInteger)index integerValueForKey:(NSString *)aKey isSuccess:(BOOL *)success
+{
+    NSString                      * string;
+    
+    string                          = [self dataAtIndex: index stringValueForKey: aKey];
+    if ( nil == string )
+    {
+        if ( nil != success )
+        {
+            *success                = NO;
+        }
+        return -1;
+    }
+    
+    if ( nil != success )
+    {
+        *success                    = YES;
+    }
+    return [string integerValue];
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( float ) dataAtIndex:(NSInteger)index floatValueForKey:(NSString *)aKey isSuccess:(BOOL *)success
+{
+    NSString                      * string;
+    
+    string                          = [self dataAtIndex: index stringValueForKey: aKey];
+    if ( nil == string )
+    {
+        if ( nil != success )
+        {
+            *success                = NO;
+        }
+        return -1.0f;
+    }
+    
+    if ( nil != success )
+    {
+        *success                    = YES;
+    }
+    return [string floatValue];
+}
+
+//  ------------------------------------------------------------------------------------------------
+#pragma mark method for get data (data type is dictionary).
+//  ------------------------------------------------------------------------------------------------
+- ( id ) rootObjectForKey:(NSString *)aKey
+{
+    NSParameterAssert( nil != dataContainer );
+    NSParameterAssert( YES != topObjectIsArray );
+    NSParameterAssert( nil != aKey );
+    
+    return [dataContainer objectForKey: aKey];
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( NSArray * ) rootAllKeys
+{
+    NSParameterAssert( nil != dataContainer );
+    NSParameterAssert( YES != topObjectIsArray );
+
+    return [dataContainer allKeys];
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( NSArray * ) rootAllValues
+{
+    NSParameterAssert( nil != dataContainer );
+    NSParameterAssert( YES != topObjectIsArray );
+    
+    return [dataContainer allValues];
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( id ) objectForKeyPath:(NSString *)keyPath
+{
+    NSParameterAssert( nil != dataContainer );
+    NSParameterAssert( YES != topObjectIsArray );
+    
+    NSInteger                       index;
+    NSArray                       * keySeparated;
+    NSDictionary                  * dataObject;
+    
+    keySeparated                    = [keyPath componentsSeparatedByString: @"/"];
+    if ( ( nil == keySeparated ) || ( [keySeparated count] == 0 ) )
+    {
+        return nil;
+    }
+    
+    index                           = 0;
+    dataObject                      = dataContainer;
+    do
+    {
+        dataObject                  = [dataObject objectForKey: [keySeparated objectAtIndex: index]];
+        if ( ( nil == dataObject ) || ( [dataObject isKindOfClass: [NSDictionary class]] == NO ) )
+        {
+            return nil;
+        }
+        index++;
+    } while ( [keySeparated count] > index );
+    
+    return dataObject;
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( NSString * ) stringValueForKeyPath:(NSString *)keyPath
+{
+    id                              dataObject;
+    
+    dataObject                      = [self objectForKeyPath: keyPath];
+    if ( nil == dataObject )
+    {
+        return nil;
+    }
+    
+    if ( [(NSString *)dataObject length] == 0 )
+    {
+        return nil;
+    }
+    return dataObject;
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( NSInteger ) integerValueForKeyPath:(NSString *)keyPath isSuccess:(BOOL *)success
+{
+    NSString                      * string;
+    
+    string                          = [self stringValueForKeyPath: keyPath];
+    if ( nil == string )
+    {
+        if ( nil != success )
+        {
+            *success                = NO;
+        }
+        return -1;
+    }
+    
+    if ( nil != success )
+    {
+        *success                    = YES;
+    }
+    return [string integerValue];
+}
+
+//  ------------------------------------------------------------------------------------------------
+- ( float ) floatValueForKeyPath:(NSString *)keyPath isSuccess:(BOOL *)success
+{
+    NSString                      * string;
+    
+    string                          = [self stringValueForKeyPath: keyPath];
+    if ( nil == string )
+    {
+        if ( nil != success )
+        {
+            *success                = NO;
+        }
+        return -1.0f;
+    }
+    
+    if ( nil != success )
+    {
+        *success                    = YES;
+    }
+    return [string floatValue];
 }
 
 

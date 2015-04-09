@@ -26,6 +26,37 @@
 
 
 //  ------------------------------------------------------------------------------------------------
+#pragma mark declare for get root data.
+//  ------------------------------------------------------------------------------------------------
+- ( NSInteger ) rootDataCount;
+
+//  ------------------------------------------------------------------------------------------------
+- ( id ) rootObjectAtIndex:(NSInteger)index;
+
+- ( NSString * ) dataAtIndex:(NSInteger)index stringValueForKey:(NSString *)aKey;
+
+- ( NSInteger ) dataAtIndex:(NSInteger)index integerValueForKey:(NSString *)aKey isSuccess:(BOOL *)success;
+
+- ( float ) dataAtIndex:(NSInteger)index floatValueForKey:(NSString *)aKey isSuccess:(BOOL *)success;
+
+//  ------------------------------------------------------------------------------------------------
+#pragma mark declare for get data (data type is dictionary).
+//  ------------------------------------------------------------------------------------------------
+- ( id ) rootObjectForKey:(NSString *)aKey;
+
+- ( NSArray * ) rootAllKeys;
+
+- ( NSArray * ) rootAllValues;
+
+- ( id ) objectForKeyPath:(NSString *)keyPath;
+
+- ( NSString * ) stringValueForKeyPath:(NSString *)keyPath;
+
+- ( NSInteger ) integerValueForKeyPath:(NSString *)keyPath isSuccess:(BOOL *)success;
+
+- ( float ) floatValueForKeyPath:(NSString *)keyPath isSuccess:(BOOL *)success;
+
+//  ------------------------------------------------------------------------------------------------
 
 
 @end
