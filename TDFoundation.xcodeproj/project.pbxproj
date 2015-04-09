@@ -13,6 +13,7 @@
 		2A8FDD1B1AB724BE006BD130 /* TDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD191AB724BE006BD130 /* TDUtilities.m */; };
 		2AC1CD061AD691F800419536 /* NSJSONSerialization+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD011AD691F800419536 /* NSJSONSerialization+TechD.m */; };
 		2AC1CD071AD691F800419536 /* NSString+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD031AD691F800419536 /* NSString+TechD.m */; };
+		2AC1CD0B1AD693D700419536 /* TDJSONReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD0A1AD693D700419536 /* TDJSONReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		2AC1CD031AD691F800419536 /* NSString+TechD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TechD.m"; sourceTree = "<group>"; };
 		2AC1CD041AD691F800419536 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2AC1CD051AD691F800419536 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2AC1CD091AD693D700419536 /* TDJSONReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDJSONReader.h; sourceTree = "<group>"; };
+		2AC1CD0A1AD693D700419536 /* TDJSONReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJSONReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				2A8FDD191AB724BE006BD130 /* TDUtilities.m */,
 				2A8FDD161AB724BE006BD130 /* TDTexturePackerXMLReader.h */,
 				2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */,
+				2AC1CD091AD693D700419536 /* TDJSONReader.h */,
+				2AC1CD0A1AD693D700419536 /* TDJSONReader.m */,
 			);
 			path = TDFoundation;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				2A8FDD1B1AB724BE006BD130 /* TDUtilities.m in Sources */,
 				2AC1CD071AD691F800419536 /* NSString+TechD.m in Sources */,
 				2A8FDD1A1AB724BE006BD130 /* TDTexturePackerXMLReader.m in Sources */,
+				2AC1CD0B1AD693D700419536 /* TDJSONReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
