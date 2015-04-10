@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TDFoundation"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A base functional library of Tech.D."
 
   s.homepage     = "https://git.techd.idv.tw:5001"
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ARCMacros.h', 'TDFoundation/*.{h,m,mm}'
 
-  #s.dependency    "TDMath", "~> 0.0.1"
+  s.dependency    "Foundation+TechD",     "~> 0.0.1"
 
 
 end
