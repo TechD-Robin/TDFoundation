@@ -33,7 +33,15 @@
 //  ------------------------------------------------------------------------------------------------
 @interface TDJSONReader ()
 {
+    /**
+     *  the container type, when type of container is array then the value is YES, otherwise it's NO.
+     *  (type is dictionary, value is NO)
+     */
     BOOL                            topObjectIsArray;
+    
+    /**
+     *  the container of JSON data.
+     */
     id                              dataContainer;    
 }
 
@@ -83,7 +91,6 @@
 //  ------------------------------------------------------------------------------------------------
 #pragma mark method for initial this class.
 //  ------------------------------------------------------------------------------------------------
-//  --------------------------------
 - ( void ) _InitAttributes
 {
     topObjectIsArray                = NO;
@@ -117,10 +124,21 @@
 //  ------------------------------------------------------------------------------------------------
 #pragma mark overwrite implementation of NSObject
 //  ------------------------------------------------------------------------------------------------
-//  --------------------------------
+- ( instancetype ) init
+{
+    return [self initWithFile: nil forDirectories: TDTemporaryDirectory inDirectory: nil encoding: NSASCIIStringEncoding];
+}
+
+//  ------------------------------------------------------------------------------------------------
 - ( void ) dealloc
 {
-
+    if ( nil != dataContainer )
+    {
+        [dataContainer removeAllObjects];
+        SAFE_ARC_RELEASE( dataContainer );
+        SAFE_ARC_ASSIGN_POINTER_NIL( dataContainer );
+    }
+    SAFE_ARC_SUPER_DEALLOC();
 }
 
 //  ------------------------------------------------------------------------------------------------
@@ -177,7 +195,7 @@
 }
 
 //  ------------------------------------------------------------------------------------------------
-#pragma mark method for get data.
+#pragma mark method for get root data (array/dictionary).
 //  ------------------------------------------------------------------------------------------------
 - ( NSInteger ) rootDataCount
 {
@@ -191,7 +209,6 @@
 }
 
 //  ------------------------------------------------------------------------------------------------
-//  --------------------------------
 - ( id ) rootObjectAtIndex:(NSInteger)index
 {
     NSParameterAssert( nil != dataContainer );
@@ -241,7 +258,6 @@
     return nil;
 }
 
-//  ------------------------------------------------------------------------------------------------
 //  ------------------------------------------------------------------------------------------------
 - ( NSString * ) dataAtIndex:(NSInteger)index stringValueForKey:(NSString *)aKey
 {
@@ -313,7 +329,7 @@
 }
 
 //  ------------------------------------------------------------------------------------------------
-#pragma mark method for get data (data type is dictionary).
+#pragma mark method for get data (dictionary).
 //  ------------------------------------------------------------------------------------------------
 - ( id ) rootObjectForKey:(NSString *)aKey
 {
