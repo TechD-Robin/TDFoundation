@@ -350,7 +350,7 @@
     
     NSInteger                       index;
     NSArray                       * keySeparated;
-    NSDictionary                  * dataObject;
+    id                              dataObject;
     
     keySeparated                    = [keyPath componentsSeparatedByString: @"/"];
     if ( ( nil == keySeparated ) || ( [keySeparated count] == 0 ) )
@@ -363,7 +363,7 @@
     do
     {
         dataObject                  = [dataObject objectForKey: [keySeparated objectAtIndex: index]];
-        if ( ( nil == dataObject ) || ( [dataObject isKindOfClass: [NSDictionary class]] == NO ) )
+        if ( nil == dataObject )
         {
             return nil;
         }
