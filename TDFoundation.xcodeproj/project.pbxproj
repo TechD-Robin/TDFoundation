@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A5883AB1AFB5A6000038E9A /* TDUtilitiesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5883AA1AFB5A6000038E9A /* TDUtilitiesTest.m */; };
 		2A8FDD001AB72406006BD130 /* TDFoundation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2A8FDCFF1AB72406006BD130 /* TDFoundation.h */; };
 		2A8FDD081AB72406006BD130 /* libTDFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */; };
 		2A8FDD1A1AB724BE006BD130 /* TDTexturePackerXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A5883AA1AFB5A6000038E9A /* TDUtilitiesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtilitiesTest.m; sourceTree = "<group>"; };
 		2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTDFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8FDCFF1AB72406006BD130 /* TDFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFoundation.h; sourceTree = "<group>"; };
 		2A8FDD071AB72406006BD130 /* TDFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				2A8FDD0C1AB72406006BD130 /* Supporting Files */,
+				2A5883AA1AFB5A6000038E9A /* TDUtilitiesTest.m */,
 			);
 			path = TDFoundationTests;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A5883AB1AFB5A6000038E9A /* TDUtilitiesTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
