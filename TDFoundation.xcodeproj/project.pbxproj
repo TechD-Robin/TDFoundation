@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A43585E1AFDE905001AEF63 /* TDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD191AB724BE006BD130 /* TDUtilities.m */; };
+		2A43585F1AFDE905001AEF63 /* TDTexturePackerXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8FDD171AB724BE006BD130 /* TDTexturePackerXMLReader.m */; };
+		2A4358601AFDE905001AEF63 /* TDJSONReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD0A1AD693D700419536 /* TDJSONReader.m */; };
+		2A4358611AFDE905001AEF63 /* NSString+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD031AD691F800419536 /* NSString+TechD.m */; };
+		2A4358621AFDE905001AEF63 /* NSDate+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAB78881AEE7C1500DA71A8 /* NSDate+TechD.m */; };
+		2A4358631AFDE905001AEF63 /* NSBundle+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAB78861AEE7C1500DA71A8 /* NSBundle+TechD.m */; };
+		2A4358641AFDE905001AEF63 /* NSPropertyListSerialization+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAB788A1AEE7C1500DA71A8 /* NSPropertyListSerialization+TechD.m */; };
+		2A4358651AFDE905001AEF63 /* NSJSONSerialization+TechD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1CD011AD691F800419536 /* NSJSONSerialization+TechD.m */; };
 		2A5883AB1AFB5A6000038E9A /* TDUtilitiesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5883AA1AFB5A6000038E9A /* TDUtilitiesTest.m */; };
 		2A8FDD001AB72406006BD130 /* TDFoundation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2A8FDCFF1AB72406006BD130 /* TDFoundation.h */; };
 		2A8FDD081AB72406006BD130 /* libTDFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */; };
@@ -281,6 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A43585E1AFDE905001AEF63 /* TDUtilities.m in Sources */,
+				2A43585F1AFDE905001AEF63 /* TDTexturePackerXMLReader.m in Sources */,
+				2A4358601AFDE905001AEF63 /* TDJSONReader.m in Sources */,
+				2A4358611AFDE905001AEF63 /* NSString+TechD.m in Sources */,
+				2A4358621AFDE905001AEF63 /* NSDate+TechD.m in Sources */,
+				2A4358631AFDE905001AEF63 /* NSBundle+TechD.m in Sources */,
+				2A4358641AFDE905001AEF63 /* NSPropertyListSerialization+TechD.m in Sources */,
+				2A4358651AFDE905001AEF63 /* NSJSONSerialization+TechD.m in Sources */,
 				2A5883AB1AFB5A6000038E9A /* TDUtilitiesTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
