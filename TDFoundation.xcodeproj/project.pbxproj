@@ -52,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A40E8841B792CA2007914F0 /* TDFoundation.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = TDFoundation.podspec; sourceTree = "<group>"; };
 		2A5883AA1AFB5A6000038E9A /* TDUtilitiesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtilitiesTest.m; sourceTree = "<group>"; };
 		2A8FDCFC1AB72406006BD130 /* libTDFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTDFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8FDCFF1AB72406006BD130 /* TDFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFoundation.h; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 				2A8FDD0B1AB72406006BD130 /* TDFoundationTests */,
 				2A1119C41AD690FF00F42774 /* Libraries */,
 				2A8FDCFD1AB72406006BD130 /* Products */,
+				2A40E8841B792CA2007914F0 /* TDFoundation.podspec */,
 			);
 			sourceTree = "<group>";
 		};
