@@ -3,13 +3,21 @@ Pod::Spec.new do |s|
 
   s.name         = "TDFoundation"
   s.version      = "0.0.4"
-  s.summary      = "A base functional library of Tech.D."
+  s.summary      = "The `TDFoundation` is base functional library of Tech.D."
 
-  s.homepage     = "https://git.techd.idv.tw:5001"
-  s.source       = { :git => "git://git.techd.idv.tw/Libraries/TDFoundation.git", :tag => "#{s.version}" }
+  s.description  = <<-DESC
+                   The `TDFoundation` is base functional library of Tech.D..
 
-  s.license      = { :type=> "No License", :file => "LICENSE" }
-  s.author       = { "Robin Hsu" => "robinhsu599+dev@gmail.com" }
+                   * There are several utilities & methods to simplify call.
+                   DESC
+
+
+  s.homepage     = "https://github.com/TechD-Robin/TDFoundation/"
+  s.source       = { :git => "https://github.com/TechD-Robin/TDFoundation.git", :tag => "#{s.version}" }
+
+  s.license            = 'MIT'
+  s.author             = { "Robin Hsu" => "robinhsu599+dev@gmail.com" }
+  s.social_media_url   = "https://plus.google.com/+RobinHsu"
 
 
   s.platform     = :ios, "8.0"
