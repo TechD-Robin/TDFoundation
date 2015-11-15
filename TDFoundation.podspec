@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary      = "The `TDFoundation` is base functional library of Tech.D."
 
   s.description  = <<-DESC
-                   The `TDFoundation` is base functional library of Tech.D..
+                   The `TDFoundation` is base functional library of Tech.D.
 
                    * There are several utilities & methods to simplify call.
                    DESC
